@@ -18,11 +18,12 @@ const menuItems = [
   },
 ];
 
-function NavMenu({ openMobileMenu, setopenMobileMenu }) {
-  const { isDesktop, isTablet } = useContext(DeviceContext);
+function NavMenu() {
+  const { isDesktop, isTablet, openMobileMenu, setopenMobileMenu } =
+    useContext(DeviceContext);
 
   return (
-    <div className="absolute -bottom-[260px] h-[253px] w-full bg-white p-8 md:bottom-auto md:col-start-2 md:grid md:h-auto md:grid-flow-col md:justify-between md:px-10  ">
+    <div className="absolute -bottom-[252px] h-[253px] w-full bg-white p-4 md:bottom-auto md:col-start-2 md:grid md:h-auto md:grid-flow-col md:justify-between md:px-10  ">
       <div className="mx-auto grid gap-5 text-center text-[15px] font-bold uppercase tracking-[2.5px] md:mx-0 md:grid-flow-col md:items-center md:gap-10 md:text-xs md:tracking-[2px]">
         {menuItems.map((item) => (
           <Link

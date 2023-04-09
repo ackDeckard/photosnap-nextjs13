@@ -3,21 +3,23 @@ import Image from "next/image";
 import React, { useContext, useEffect, useState } from "react";
 import NavMenu from "./NavMenu";
 import { DeviceContext } from "../lib/store/device-context";
+import Link from "next/link";
 
 function Header() {
-  const [openMobileMenu, setopenMobileMenu] = useState(false);
-  const { isDesktop, isTablet } = useContext(DeviceContext);
+  const { isDesktop, isTablet, openMobileMenu, setopenMobileMenu } =
+    useContext(DeviceContext);
 
-  console.log(isDesktop);
   return (
-    <header className="relative grid h-[72px] w-full grid-flow-col place-items-center justify-between px-6 py-7">
-      <Image
-        src="/assets/logo.svg"
-        alt="photosnap logo"
-        width={0}
-        height={0}
-        className="h-4 w-[170px]"
-      />
+    <header className="relative grid h-[72px] w-full grid-flow-col place-items-center justify-between px-6 ">
+      <Link href="/">
+        <Image
+          src="/assets/logo.svg"
+          alt="photosnap logo"
+          width={0}
+          height={0}
+          className="h-4 w-[170px]"
+        />
+      </Link>
 
       {isDesktop || isTablet ? <NavMenu /> : ""}
 
@@ -34,14 +36,7 @@ function Header() {
         />
       </button>
 
-      {openMobileMenu ? (
-        <NavMenu
-          openMobileMenu={openMobileMenu}
-          setopenMobileMenu={setopenMobileMenu}
-        />
-      ) : (
-        ""
-      )}
+      {openMobileMenu ? <NavMenu /> : ""}
     </header>
   );
 }

@@ -6,11 +6,14 @@ export const DeviceContext = createContext({
   setIsDesktop: () => {},
   isTablet: false,
   setIsTablet: () => {},
+  openMobileMenu: false,
+  setopenMobileMenu: () => {},
 });
 
 export function DeviceProvider({ children }) {
   const [isDesktop, setIsDesktop] = useState(false);
   const [isTablet, setIsTablet] = useState(false);
+  const [openMobileMenu, setopenMobileMenu] = useState(false);
 
   const handleResize = () => {
     if (window.innerWidth >= 1024) {
@@ -33,7 +36,14 @@ export function DeviceProvider({ children }) {
 
   return (
     <DeviceContext.Provider
-      value={{ isDesktop, isTablet, isTablet, setIsTablet }}
+      value={{
+        isDesktop,
+        isTablet,
+        isTablet,
+        setIsTablet,
+        openMobileMenu,
+        setopenMobileMenu,
+      }}
     >
       {children}
     </DeviceContext.Provider>
