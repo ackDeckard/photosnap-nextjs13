@@ -1,3 +1,4 @@
+import Footer from "./components/Footer";
 import Header from "./components/Header";
 import "./globals.css";
 import { DeviceProvider } from "./lib/store/device-context";
@@ -14,6 +15,7 @@ export default function RootLayout({ children }) {
         <DeviceProvider>
           <Header />
           {children}
+          <Footer />
         </DeviceProvider>
       </body>
     </html>

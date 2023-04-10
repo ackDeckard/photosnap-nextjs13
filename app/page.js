@@ -2,6 +2,9 @@ import { Inter } from "next/font/google";
 import Image from "next/image";
 import NewStory from "./components/NewStory";
 import ControlPanel from "./components/ControlPanel";
+import ReadStory from "./components/ReadStory";
+import ViewFeatures from "./components/ViewFeatures";
+import Footer from "./components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -37,8 +40,64 @@ const dataReadStory = [
     id: 1,
     title: "The mountains",
     author: "john appleseed",
-    imgUrl: "/assets/stories/desktop/mountains.jpg",
+    imgURL: "/assets/stories/desktop/mountains.jpg",
     alt: "a mountain with clouds in the base",
+  },
+  {
+    id: 2,
+    title: "Sunset Cityscapes",
+    author: "Benjamin Cruz",
+    imgURL: "/assets/stories/desktop/cityscapes.jpg",
+    alt: "skyscrapers viewed from above",
+  },
+  {
+    id: 3,
+    title: "18 Days Voyage",
+    author: "Alexei Borodin",
+    imgURL: "/assets/stories/desktop/18-days-voyage.jpg",
+    alt: "human silhouette",
+  },
+  {
+    id: 4,
+    title: "Architecturals",
+    author: "Samantha Brooke",
+    imgURL: "/assets/stories/desktop/architecturals.jpg",
+    alt: "view from the side of a building",
+  },
+];
+
+const dataFeatures = [
+  {
+    id: 1,
+    imgURL: "/assets/features/desktop/responsive.svg",
+    alt: "icon of a desktop, a tablet and a smartphone",
+    title: "100% responsive",
+    text: "No matter which the device you're on, our site is fully responsive and stories look beautiful on any screen.",
+  },
+  {
+    id: 2,
+    imgURL: "/assets/features/desktop/no-limit.svg",
+    alt: "infinite symbol",
+    title: "no photo upload limit",
+    text: "Our tool has no limits on uploads or bandwidth. Freely upload in bulk and share all of your stories in one go.",
+  },
+  {
+    id: 3,
+    imgURL: "/assets/features/desktop/embed.svg",
+    alt: "a notebook with symbols near it",
+    title: "Available to Embed",
+    text: "Embed Tweets, Facebook posts, Instagram media, Vimeo or YouTube videos, Google Maps, and more.",
+  },
+];
+
+const beta = [
+  {
+    id: 1,
+    imgURL: "/assets/home/desktop/create-and-share.jpg",
+    alt: "guy standing on a pier",
+    title: "Create and share your photo stories.",
+    text: "Photosnap is a platform for photographers and visual storytellers. We make it easy to share photos, tell stories and connect with others.",
+    linkText: "get an invite",
   },
 ];
 
@@ -46,46 +105,8 @@ export default function Home() {
   return (
     <main>
       <ControlPanel data={data} />
-      {/* {data.map((item) => (
-        <section
-          key={item.id}
-          className={`md:grid md:grid-cols-[1fr_1fr_273px] md:place-content-center lg:grid-cols-[305px_1fr_1fr_1fr_305px] ${
-            item.id === 1
-              ? "md:h-[650px] md:bg-black"
-              : "md:h-[600px] md:bg-white"
-          } `}
-        >
-          <Image
-            src={item.imgURL}
-            alt={item.alt}
-            width={0}
-            height={0}
-            priority
-            unoptimized
-            blurDataURL="data:..."
-            placeholder="blur"
-            className={`${
-              item.id === 1
-                ? "h-[294px] md:h-[650px]"
-                : "h-[271px] md:h-[600px]"
-            } w-full object-cover object-center lg:col-span-4 lg:w-full ${
-              item.id % 2 !== 0
-                ? "md:col-start-3 lg:col-start-3"
-                : "md:col-start-1 md:object-center lg:col-start-1"
-            }   `}
-          ></Image>
-
-          <div
-            className={`h-auto w-full md:col-span-2 md:row-start-1 md:grid md:h-full md:place-content-center lg:w-[610px] ${
-              item.id % 2 !== 0
-                ? "md:col-start-1 lg:col-start-1"
-                : "md:col-start-2 lg:col-start-5"
-            } `}
-          >
-            <NewStory key={item.id} data={item} />
-          </div>
-        </section>
-      ))} */}
+      <ReadStory dataReadStory={dataReadStory} />
+      <ViewFeatures dataFeatures={dataFeatures} />
     </main>
   );
 }

@@ -4,13 +4,17 @@ import React from "react";
 import LinkArrow from "./LinkArrow";
 
 function NewStory({ data }) {
-  const { id, subTitle, title, date, author, text, linkText } = data;
+  const { id, subTitle, title, date, author, text, linkText, specialCase } =
+    data;
 
   return (
     <section
       className={`${
         id === 1 ? "bg-black text-white" : "bg-white text-black"
-      } h-full w-full  px-8 py-[72px] uppercase  tracking-[2px] md:px-[54px]`}
+      } h-full w-full  px-8 py-[72px] uppercase  tracking-[2px] md:px-[54px]
+      
+      ${specialCase ? "bg-transparent" : ""}
+      `}
     >
       {subTitle ? <h5 className="mb-4 text-xs uppercase">{subTitle}</h5> : ""}
       <h1 className="text-[32px] font-bold uppercase tracking-[3.33px] md:text-[40px]">
