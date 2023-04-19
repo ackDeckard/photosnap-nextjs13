@@ -9,8 +9,30 @@ function Header() {
   const { isDesktop, isTablet, openMobileMenu, setopenMobileMenu } =
     useContext(DeviceContext);
 
+  const [isFixed, setIsFixed] = useState(false);
+
+  useEffect(() => {
+    function handleScroll() {
+      if (!isDesktop && window.scrollY > 72) {
+        setIsFixed(true);
+      } else {
+        setIsFixed(false);
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [isDesktop]);
+
   return (
-    <header className="relative grid h-[72px] w-full grid-flow-col place-items-center justify-between px-6 ">
+    <header
+      className={`grid h-[72px] w-full grid-flow-col place-items-center justify-between bg-white px-6 ${
+        isFixed ? "fixed top-0 z-50 bg-white" : "relative"
+      } `}
+    >
       <Link href="/">
         <Image
           src="/assets/logo.svg"

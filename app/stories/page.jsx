@@ -146,11 +146,34 @@ const dataReadStory = [
   },
 ];
 
+const dataFeatures = [
+  {
+    id: 1,
+    imgURL: "/assets/features/desktop/responsive.svg",
+    alt: "icon of a desktop, a tablet and a smartphone",
+    title: "100% responsive",
+    text: "No matter which the device you're on, our site is fully responsive and stories look beautiful on any screen.",
+  },
+  {
+    id: 2,
+    imgURL: "/assets/features/desktop/no-limit.svg",
+    alt: "infinite symbol",
+    title: "no photo upload limit",
+    text: "Our tool has no limits on uploads or bandwidth. Freely upload in bulk and share all of your stories in one go.",
+  },
+  {
+    id: 3,
+    imgURL: "/assets/features/desktop/embed.svg",
+    alt: "a notebook with symbols near it",
+    title: "Available to Embed",
+    text: "Embed Tweets, Facebook posts, Instagram media, Vimeo or YouTube videos, Google Maps, and more.",
+  },
+];
+
 function page() {
   return (
     <div>
-      {/* <ControlPanel data={data} /> */}
-
+      <ControlPanel data={data} />
       <ReadStory dataReadStory={dataReadStory} />
     </div>
   );

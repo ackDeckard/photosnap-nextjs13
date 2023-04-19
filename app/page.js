@@ -1,12 +1,6 @@
-import { Inter } from "next/font/google";
-import Image from "next/image";
-import NewStory from "./components/NewStory";
 import ControlPanel from "./components/ControlPanel";
 import ReadStory from "./components/ReadStory";
 import ViewFeatures from "./components/ViewFeatures";
-import Footer from "./components/Footer";
-
-const inter = Inter({ subsets: ["latin"] });
 
 const data = [
   {

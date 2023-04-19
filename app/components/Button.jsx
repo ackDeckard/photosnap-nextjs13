@@ -1,71 +1,32 @@
 "use client";
-import { cva, VariantProps } from "class-variance-authority";
+import { useButton } from "@react-aria/button";
+import React, { useRef } from "react";
+import { FocusRing } from "react-aria";
 
-const Button = ({
-  children,
-  className,
-  intent,
-  hovercolor,
-  size,
-  ...props
-}) => {
-  const buttonClasses = cva(
-    [
-      "grid",
-      "place-items-center",
-      "transition",
-      "duration-300",
-      "ease-in-out",
-      "bg-black",
-      "text-white",
-      "uppercase",
-      "font-bold",
-      "mx-auto",
-    ],
+function Button({ onClick, children, size, btnColor, textColor }) {
+  let ref = useRef();
+  let { buttonProps, isPressed } = useButton({ onPress: onClick }, ref);
 
-    {
-      variants: {
-        intent: {
-          primary: [
-            "w-[310px]",
-            "h-12",
-            "text-[15px]",
-            "tracking-[2.5px]",
-            "bg-black",
-          ],
-
-          secondary: [
-            "bg-white",
-            "text-black",
-            "border-gray-400",
-            "hover:bg-gray-100",
-            "border-solid",
-            "border-2",
-            "border-gray-800",
-          ],
-          text: ["bg-transparent", "text-black", "hover:bg-gray-100"],
-        },
-        size: {
-          small: ["text-md", "py-1", "px-2"],
-          tablet: ["w-[158px]", "h-10", "text-xs", "px-5", "py-2"],
-          mobile: ["w-full", "h-12"],
-        },
-      },
-      defaultVariants: {
-        intent: "primary",
-        size: "mobile",
-      },
-    }
-  );
+  const { width, height } = size || { width: 310, height: 48 };
 
   return (
-    <button
-      className={buttonClasses({ intent, hovercolor, size, className })}
-      {...props}
-    >
-      {children}
-    </button>
+    <FocusRing focusRingClass="ring ring-offset-2 ring-offset-black rounded-none ">
+      <button
+        // for some reason, adding ${customHeight} ${customWidth} in classname doesn't work. Tailwind?
+        style={{
+          width: width,
+          height: height,
+        }}
+        className={` ${
+          isPressed ? "bg-black/80" : ""
+        } ${btnColor} mx-auto text-xs font-bold uppercase tracking-[2.5px] ${textColor}`}
+        {...buttonProps}
+        ref={ref}
+      >
+        {children}
+      </button>
+    </FocusRing>
   );
-};
+}
 
 export default Button;

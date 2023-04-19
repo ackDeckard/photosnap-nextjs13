@@ -1,5 +1,3 @@
-import Image from "next/image";
-import Link from "next/link";
 import React from "react";
 import LinkArrow from "./LinkArrow";
 
@@ -31,7 +29,9 @@ function NewStory({ data }) {
       )}
 
       {/* The paragraph between the title and the link */}
-      <p className="py-6 text-[15px] capitalize tracking-normal">{text}</p>
+      <p className="py-6 text-[15px] capitalize tracking-normal text-white/60">
+        {text}
+      </p>
       {linkText ? <LinkArrow id={id} linkText={linkText} /> : ""}
     </section>
   );
