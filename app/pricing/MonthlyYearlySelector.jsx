@@ -1,8 +1,9 @@
 "use client";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { DeviceContext } from "../lib/store/device-context";
 
 function MonthlyYearlySelector() {
-  const [payMonthYear, setpayMonthYear] = useState(false);
+  const { payMonthYear, setpayMonthYear } = useContext(DeviceContext);
 
   const circlePosition = payMonthYear
     ? "translate-x-[150%]  "

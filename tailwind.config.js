@@ -14,6 +14,9 @@ module.exports = {
       },
       colors: {
         customGray: "hsl(0, 0%, 88%)",
+        gradientStart: "hsl(28, 100%, 79%)",
+        gradientMiddle: "hsl(329, 36%, 59%)",
+        gradientEnd: "hsl(229, 100%, 68%)",
       },
     },
   },

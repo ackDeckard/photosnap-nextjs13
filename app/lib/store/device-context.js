@@ -8,12 +8,15 @@ export const DeviceContext = createContext({
   setIsTablet: () => {},
   openMobileMenu: false,
   setopenMobileMenu: () => {},
+  payMonthYear: false,
+  setpayMonthYear: () => {},
 });
 
 export function DeviceProvider({ children }) {
   const [isDesktop, setIsDesktop] = useState(false);
   const [isTablet, setIsTablet] = useState(false);
   const [openMobileMenu, setopenMobileMenu] = useState(false);
+  const [payMonthYear, setpayMonthYear] = useState(false);
 
   const handleResize = () => {
     if (window.innerWidth >= 1024) {
@@ -43,6 +46,8 @@ export function DeviceProvider({ children }) {
         setIsTablet,
         openMobileMenu,
         setopenMobileMenu,
+        payMonthYear,
+        setpayMonthYear,
       }}
     >
       {children}
