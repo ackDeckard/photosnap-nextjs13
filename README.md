@@ -4,4 +4,6 @@ Project built using the following tools:
 - Next JS 13
 - Tailwind
 
+- React-aria
+
 Advanced project on FrontEnd Mentor.
