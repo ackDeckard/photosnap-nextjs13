@@ -4,6 +4,8 @@ Project built using the following tools:
 - Next JS 13
 - Tailwind
 
-- React-aria
+- React-aria ( @react-aria/button ) 
+- Context API
+- 
 
 Advanced project on FrontEnd Mentor.
