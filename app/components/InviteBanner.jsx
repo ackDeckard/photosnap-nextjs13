@@ -1,9 +1,13 @@
 import React from "react";
 import LinkArrow from "./LinkArrow";
+import GradientBar from "./GradientBar";
 
 function InviteBanner() {
   return (
-    <section className="grid h-[288px] w-full bg-mobile bg-cover bg-center bg-no-repeat py-16 pl-8 tracking-[3.33px] text-white md:h-[280px] md:grid-cols-[1fr_170px_max-content] md:place-items-center md:bg-tablet md:px-8 lg:bg-desktop lg:px-[170px] xl:grid-cols-[max-content_1fr_max-content]">
+    <section
+      className="relative grid h-[288px] w-full bg-mobile bg-cover bg-center bg-no-repeat py-16 pl-8 tracking-[3.33px] text-white md:h-[280px] md:grid-cols-[1fr_170px_max-content] md:place-items-center md:bg-tablet md:px-8 lg:bg-desktop lg:px-[170px] xl:grid-cols-[max-content_1fr_max-content]"
+      id="banner"
+    >
       <h4 className="mb-6 max-w-[400px] text-[32px] font-bold uppercase md:text-[40px]">
         We&apos;re in beta. Get your invite today!
       </h4>
@@ -15,6 +19,7 @@ function InviteBanner() {
           whitecolor={true}
         />
       </div>
+      <GradientBar parent="#banner" offset={0} />
     </section>
   );
 }

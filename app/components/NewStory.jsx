@@ -37,7 +37,16 @@ function NewStory({ data }) {
       </p>
       {linkText ? <LinkArrow id={id} linkText={linkText} /> : ""}
 
-      {!specialCase && id === 1 ? <GradientBar key={id} /> : ""}
+      {!specialCase && id === 1 ? (
+        <GradientBar
+          key={id + title}
+          parent="#parent-element"
+          offset={144}
+          measure="width"
+        />
+      ) : (
+        ""
+      )}
     </section>
   );
 }

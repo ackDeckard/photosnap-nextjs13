@@ -2,20 +2,21 @@
 import React, { useContext, useEffect, useState } from "react";
 import { DeviceContext } from "../lib/store/device-context";
 
-function GradientBar() {
+function GradientBar({ parent, offset, isOffsetPositive }) {
   const { isDesktop, isTablet } = useContext(DeviceContext);
   const [height, setHeight] = useState(0);
 
   useEffect(() => {
     function calculateHeight() {
-      const parentElement = document.querySelector("#parent-element");
-      const textHeight = parentElement.clientHeight - 144;
-      return textHeight;
+      const parentElement = document.querySelector(parent);
+      const textHeight = parentElement.clientHeight;
+      // In the Pick Plan component, the "PRO" card has a bigger size, so we need to take the difference in consideration
+      return isOffsetPositive ? textHeight + offset : textHeight - offset;
     }
 
     const calculatedHeight = calculateHeight();
     setHeight(calculatedHeight);
-  }, []);
+  }, [parent, offset, isOffsetPositive]);
 
   return (
     <div
