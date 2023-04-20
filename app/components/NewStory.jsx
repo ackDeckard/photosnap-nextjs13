@@ -1,10 +1,13 @@
-import React from "react";
+"use client";
+import React, { useContext } from "react";
 import LinkArrow from "./LinkArrow";
 import GradientBar from "./GradientBar";
+import { DeviceContext } from "../lib/store/device-context";
 
 function NewStory({ data }) {
   const { id, subTitle, title, date, author, text, linkText, specialCase } =
     data;
+  const { isDesktop, isTablet } = useContext(DeviceContext);
 
   return (
     <section
@@ -13,7 +16,7 @@ function NewStory({ data }) {
       }  h-full  w-full px-8 py-[72px] uppercase tracking-[2px] md:w-[387px] 
       
       
-      ${specialCase ? "bg-transparent" : ""}
+      ${(specialCase && isDesktop) || isTablet ? "bg-transparent" : ""}
       `}
       id="parent-element"
     >
@@ -32,7 +35,11 @@ function NewStory({ data }) {
       )}
 
       {/* The paragraph between the title and the link */}
-      <p className="py-6 text-[15px] capitalize tracking-normal text-white/60">
+      <p
+        className={`py-6 text-[15px] capitalize tracking-normal ${
+          id === 1 ? "text-white/60" : "text-black/60"
+        } `}
+      >
         {text}
       </p>
       {linkText ? <LinkArrow id={id} linkText={linkText} /> : ""}

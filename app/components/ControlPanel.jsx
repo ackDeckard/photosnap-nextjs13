@@ -4,7 +4,6 @@ import NewStory from "./NewStory";
 import GradientBar from "./GradientBar";
 
 function ControlPanel({ data }) {
-  let specialCase = true;
   return (
     <>
       {data.map((item) => (

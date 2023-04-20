@@ -30,6 +30,7 @@ function NavMenu() {
             href={item.title}
             key={item.id}
             onClick={() => setopenMobileMenu(false)}
+            className="hover:text-black/30"
           >
             {item.title}
           </Link>

@@ -3,11 +3,11 @@ import LinkArrow from "./LinkArrow";
 
 function ReadStory({ dataReadStory }) {
   return (
-    <section className="grid w-full md:grid-cols-2 lg:grid-cols-4">
+    <section className="grid w-full  md:grid-cols-2 lg:grid-cols-4">
       {dataReadStory.map((item) => (
         <div
           key={item.id + item.imgURL}
-          className={`h-[375px] w-full bg-cover bg-center bg-no-repeat `}
+          className={`h-[375px] w-full bg-cover bg-center bg-no-repeat md:hover:-translate-y-6`}
           style={{ backgroundImage: `url(${item.imgURL})` }}
         >
           <div className="grid h-full  w-full grid-rows-[1fr_min-content] items-end  bg-gradient-to-b from-black/5  to-black/70 px-8 pb-10 capitalize text-white ">

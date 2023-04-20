@@ -7,27 +7,28 @@ import LinkArrow from "./LinkArrow";
 const socialMedia = [
   {
     id: 1,
-    imgURL: "/assets/shared/desktop/facebook.svg",
+
+    imgURL: "/assets/facebook.svg",
     alt: "facebook icon",
   },
   {
     id: 2,
-    imgURL: "/assets/shared/desktop/youtube.svg",
+    imgURL: "/assets/youtube.svg",
     alt: "youtube icon",
   },
   {
     id: 3,
-    imgURL: "/assets/shared/desktop/twitter.svg",
+    imgURL: "/assets/twitter.svg",
     alt: "twitter icon",
   },
   {
     id: 4,
-    imgURL: "/assets/shared/desktop/pinterest.svg",
+    imgURL: "/assets/pinterest.svg",
     alt: "pinterest icon",
   },
   {
     id: 5,
-    imgURL: "/assets/shared/desktop/instagram.svg",
+    imgURL: "/assets/instagram.svg",
     alt: "instagram icon",
   },
 ];
@@ -58,16 +59,17 @@ function Footer() {
         </g>
       </svg>
       {/* social media icons */}
-      <div className="mb-12 grid grid-flow-col gap-3 text-white md:row-start-3 md:mb-0 md:justify-self-start lg:col-start-1 lg:row-start-2 lg:self-end ">
+      <div className="mb-12 grid grid-flow-col gap-3 text-white md:row-start-3 md:mb-0 md:justify-self-start lg:col-start-1 lg:row-start-2 lg:self-end  ">
         {socialMedia.map((item) => (
-          <Image
-            key={item.id}
-            src={item.imgURL}
-            alt={item.alt}
-            width={0}
-            height={0}
-            className="h-5 w-5 "
-          />
+          <a key={item.id} href="#">
+            <Image
+              src={item.imgURL}
+              alt={item.alt}
+              width={0}
+              height={0}
+              className="h-5 w-5 fill-current grayscale hover:grayscale-0"
+            />
+          </a>
         ))}
       </div>
       {/* footer nav menu  */}

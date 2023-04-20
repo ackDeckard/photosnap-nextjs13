@@ -61,8 +61,8 @@ const dataFeatures = [
 function page() {
   return (
     <section>
-      <ControlPanel data={data} />
-      <ViewFeatures dataFeatures={dataFeatures} />
+      <ControlPanel data={data} specialCase={true} />
+      <ViewFeatures dataFeatures={dataFeatures} special={true} />
       <InviteBanner />
     </section>
   );

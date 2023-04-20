@@ -1,10 +1,14 @@
 import Image from "next/image";
 import React from "react";
 
-function ViewFeatures({ dataFeatures }) {
+function ViewFeatures({ dataFeatures, special }) {
   return (
     <section className="grid ">
-      <div className="my-20 grid place-items-center px-9 text-black  md:grid-cols-2 lg:mx-auto  lg:grid-cols-3  lg:place-items-baseline lg:gap-8 2xl:gap-24">
+      <div
+        className={`my-20 grid place-items-center px-9 text-black ${
+          special ? "md:grid-cols-2" : "md:grid-cols-1"
+        } lg:mx-auto  lg:grid-cols-3  lg:place-items-baseline lg:gap-8 2xl:gap-24`}
+      >
         {dataFeatures.map((item) => (
           <div
             key={item.id + item.imgURL}

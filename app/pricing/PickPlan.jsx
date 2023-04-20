@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import Button from "../components/Button";
 import { DeviceContext } from "../lib/store/device-context";
 import GradientBar from "../components/GradientBar";
+import FullGradientBar from "./FullGradientBar";
 
 function PickPlan({ item, bgColor, textColor, btnColor, paragraphColor }) {
   const { payMonthYear, setpayMonthYear, isDesktop, isTablet } =
@@ -10,16 +11,12 @@ function PickPlan({ item, bgColor, textColor, btnColor, paragraphColor }) {
 
   return (
     <section
-      className={`relative mx-7 my-3 ${bgColor} pb-10 pt-14 ${paragraphColor} md:grid md:grid-cols-2 lg:w-5/6 lg:grid-cols-1 lg:place-items-center lg:gap-x-5 ${
-        item.title === "Pro" ? "h-[470px] " : "h-[407px]"
+      className={`relative mx-7 my-3 ${bgColor} pb-10 pt-14 ${paragraphColor} h-[407px] md:grid md:h-[270px] md:grid-cols-2 lg:w-5/6 lg:grid-cols-1 lg:place-items-center lg:gap-x-5 ${
+        item.title === "Pro" ? "lg:h-[470px] " : "lg:h-[407px]"
       }`}
       id="card"
     >
-      {item.title === "Pro" ? (
-        <GradientBar parent="#card" offset={63} isOffsetPositive={true} />
-      ) : (
-        ""
-      )}
+      {item.title === "Pro" ? <FullGradientBar /> : ""}
 
       {/* TITLE and Text section */}
       <div className="pb-10 md:ml-10 md:w-[270px] md:pb-8 lg:ml-0 ">
