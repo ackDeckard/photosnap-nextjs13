@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import NewStory from "./NewStory";
+import GradientBar from "./GradientBar";
 
 function ControlPanel({ data }) {
   let specialCase = true;
@@ -26,7 +27,7 @@ function ControlPanel({ data }) {
               blurDataURL="data:..."
               placeholder="blur"
               // Stories page has a special caracteristic - the background image spans the entire div. The test we're doing at "item.specialCase && item.id === 1" is for that.
-              className={`
+              className={`relative
             
             ${
               item.specialCase && item.id === 1
@@ -51,7 +52,7 @@ function ControlPanel({ data }) {
           )}
 
           <div
-            className={`h-auto w-full md:col-span-2 md:row-start-1 md:grid md:h-full md:place-content-center lg:w-[610px] ${
+            className={`relative h-auto w-full md:col-span-2 md:row-start-1 md:grid md:h-full md:place-content-center lg:w-[610px] ${
               item.id % 2 !== 0
                 ? "md:col-start-1 lg:col-start-1"
                 : "md:col-start-2 lg:col-start-5"
